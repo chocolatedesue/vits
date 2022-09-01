@@ -1,0 +1,1 @@
+python preprocess.py --text_index 2 --text_cleaners japanese_cleaners2 --filelists filelists/tr_19  filelists/val_19

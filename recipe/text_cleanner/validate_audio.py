@@ -1,22 +1,32 @@
 import os
+from pickle import TRUE
+import logging
+
+logging.basicConfig(filename='not_found.log',filemode='w',level=logging.INFO)
+
+SCRIPT = '/root/workspace/test_data/tr_19'
+POST_FIX=['.ogg','.opus','.wav']
+
+# mark = set()vali
+
+def validate(script:str):
+    cnt=0
+    with open (script,'r') as f1:
+        for i in f1:
+            res = i.strip().split('|')[0].split('.')[0]
+            FLAG = False
+            for j in POST_FIX:
+                path = res+j
+                # print (res)
+                if os.path.isfile(path):
+                    FLAG=TRUE
+                    break
+            if not FLAG:
+                cnt+=1
+                logging.info(i.strip())
+        
+    print ("not found nums: {}".format(cnt))
 
 
-file_path = "train_6_fix.txt.et"
-idx = 0
-
-# dir = os.path.join("data","dataset")
-dir = ""
-List = list (map(lambda x:x[:-4],os.listdir(dir)))
-mark = set(List)
-
-
-with open (file_path,'r') as f1:
-    with open (file_path+'.et','w') as f2:
-        for line in f1:
-            res = line.split('|')[0].split('/')[-1][:-4]
-            if res not in mark:
-                idx+=1
-                continue
-            f2.write(line)         
-                
-print (idx)
+if __name__ == "__main__":
+    validate(SCRIPT)

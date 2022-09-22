@@ -7,10 +7,10 @@ import asyncio
 import time
 
 LOG_INTERVAL= 150
-LOG_FILE = 'submit.log'
-SAMPLE_RATE = 44100
-SRC_DIR = 'test_data'
-OUT_DIR = '44k'
+LOG_FILE = '22k.log'
+SAMPLE_RATE = 22050
+SRC_DIR = 'data'
+OUT_DIR = '22k'
 task = []
 AUDIO_TYPE = ['wav','ogg','opus']
 

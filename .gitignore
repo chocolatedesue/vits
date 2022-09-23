@@ -4,7 +4,8 @@ DUMMY3
 logs
 __pycache__
 .ipynb_checkpoints
-.*.swp
+*.swp
+*.so
 
 build
 *.c
